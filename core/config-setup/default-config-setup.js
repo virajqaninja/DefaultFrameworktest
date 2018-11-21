@@ -82,9 +82,9 @@ const configSetup = {
         maxSessions: 5,
         users: {
             administrator: {
-                username: "admin",
-                password: "changeme",
-                displayName: "AP Administrator"
+                username: "ebms",
+                password: "ebms",
+                displayName: "ebms"
             }
         },
         apiUrls: {
@@ -113,7 +113,7 @@ const configSetup = {
         },
 
     },
-    baseUrl: "https://dl6.aureacentral.com:28097/",
+    baseUrl: "https://vm-000166ae.vdi-vm.devfactory.com:18793/",
     framework: 'jasmine',
     jasmineNodeOpts: {
         showColors: true,

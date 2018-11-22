@@ -113,7 +113,7 @@ const configSetup = {
         },
 
     },
-    baseUrl: "https://vm-000166ae.vdi-vm.devfactory.com:18793/",
+    baseUrl: "http://vm-000166ae.vdi-vm.devfactory.com:18793",
     framework: 'jasmine',
     jasmineNodeOpts: {
         showColors: true,

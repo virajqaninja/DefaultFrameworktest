@@ -92,7 +92,7 @@ const configSetup = {
             dealerMaster: '/debugInfo/lps/dealerMaster?dealerCode={DealerCode}&oemCode={OEMCode}',
         },
         testrail: {
-            projectId: process.env.TESTRAIL_PROJECT_ID || setupUtilities.getParam(332, '--params.testrail.projectId', false),
+            projectId: process.env.TESTRAIL_PROJECT_ID || setupUtilities.getParam(33285, '--params.testrail.projectId', false),
             milestoneName: process.env.TESTRAIL_MILESTONE_NAME || setupUtilities.getParam('Automation milestone week', '--params.testrail.milestoneName', false),
             versionName: process.env.VERSION || setupUtilities.getParam('Default version name', '--params.testrail.versionName', false),
             host: process.env.TESTRAIL_HOST || setupUtilities.getParam('https://testrail.devfactory.com/', '--params.testrail.host', false),
@@ -113,7 +113,7 @@ const configSetup = {
         },
 
     },
-    baseUrl: "http://vm-000166ae.vdi-vm.devfactory.com:18793",
+    baseUrl: "http://vm-000166ae.vdi-vm.devfactory.com:18793/sbm/bpmportal/",
     framework: 'jasmine',
     jasmineNodeOpts: {
         showColors: true,

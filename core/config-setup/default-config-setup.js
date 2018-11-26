@@ -113,13 +113,13 @@ const configSetup = {
         },
 
     },
-    baseUrl: "http://vm-000166ae.vdi-vm.devfactory.com:18793/sbm/bpmportal/",
+    baseUrl : "http://vm-000166ae.vdi-vm.devfactory.com:18793/sbm/bpmportal/",
     framework: 'jasmine',
     jasmineNodeOpts: {
         showColors: true,
         defaultTimeoutInterval: 300000,
         print: function () {
-        },
-    },
+        }
+    }
 };
 module.exports = configSetup;

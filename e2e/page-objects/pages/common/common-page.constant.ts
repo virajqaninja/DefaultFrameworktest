@@ -8,7 +8,7 @@ export class CommonPageConstant {
         administrator: {
             username: CommonPageConstant.admin.username.toString(),
             password: CommonPageConstant.admin.password.toString(),
-            displayName: CommonPageConstant.admin.displayName.toString()
+            displayName: CommonPageConstant.admin.displayName.toString(),
         }
     };
 

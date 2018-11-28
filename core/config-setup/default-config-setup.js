@@ -32,7 +32,7 @@ const chromeOptions = {
         'download': {
             'prompt_for_download': false,
             'directory_upgrade': true,
-            'default_directory': 'Downloads',
+            'default_directory': 'Downloads'
         },
     },
 };
@@ -74,7 +74,7 @@ const configSetup = {
         'browserstack.timezone': 'UTC',
         'browserstack.safari.allowAllCookies': 'true',
         shardTestFiles: true,
-        maxInstances: maxBrowserInstances,
+        maxInstances: maxBrowserInstances
     }],
     params: {
         verboseLogging: process.env.ENABLE_VERBOSE_LOGGING || setupUtilities.getParam(false, '--params.enableVerboseLogging', false),
@@ -82,9 +82,8 @@ const configSetup = {
         maxSessions: 5,
         users: {
             administrator: {
-                username: "ebms",
-                password: "ebms",
-                displayName: "ebms"
+                username: "cmcroot",
+                password: "!hailst0rm"
             }
         },
         apiUrls: {
@@ -92,7 +91,7 @@ const configSetup = {
             dealerMaster: '/debugInfo/lps/dealerMaster?dealerCode={DealerCode}&oemCode={OEMCode}',
         },
         testrail: {
-            projectId: process.env.TESTRAIL_PROJECT_ID || setupUtilities.getParam(33285, '--params.testrail.projectId', false),
+            projectId: process.env.TESTRAIL_PROJECT_ID || setupUtilities.getParam(332, '--params.testrail.projectId', false),
             milestoneName: process.env.TESTRAIL_MILESTONE_NAME || setupUtilities.getParam('Automation milestone week', '--params.testrail.milestoneName', false),
             versionName: process.env.VERSION || setupUtilities.getParam('Default version name', '--params.testrail.versionName', false),
             host: process.env.TESTRAIL_HOST || setupUtilities.getParam('https://testrail.devfactory.com/', '--params.testrail.host', false),
@@ -113,7 +112,7 @@ const configSetup = {
         },
 
     },
-    baseUrl : "http://vm-000166ae.vdi-vm.devfactory.com:18793/sbm/bpmportal/",
+    baseUrl: "https://comal.alertfind.com/login",
     framework: 'jasmine',
     jasmineNodeOpts: {
         showColors: true,

@@ -113,6 +113,7 @@ const configSetup = {
 
     },
     baseUrl: "https://comal.alertfind.com/login",
+    apiBaseUrl: process.env.BASE_URL || setupUtilities.getParam('http://10.224.133.34:31007', '--params.apiBaseUrl', false),
     framework: 'jasmine',
     jasmineNodeOpts: {
         showColors: true,

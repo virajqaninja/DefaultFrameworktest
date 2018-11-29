@@ -32,7 +32,7 @@ const chromeOptions = {
         'download': {
             'prompt_for_download': false,
             'directory_upgrade': true,
-            'default_directory': 'Downloads'
+            'default_directory': 'Downloads',
         },
     },
 };
@@ -46,11 +46,9 @@ const configSetup = {
         maxInstances: maxBrowserInstances,
         acceptInsecureCerts: true,
     }],
-    allScriptsTimeout: 300000,
+    allScriptsTimeout: 600000,
     suites: {
-        health_tests: './e2e/test-suites/health-check/**/*.e2e-spec.ts',
-        e2e_tests: './e2e/test-suites/e2e/**/*.e2e-spec.ts',
-        api_tests: './e2e/test-suites/api/**/*.e2e-spec.ts'
+        e2e_tests: './e2e/test-suites/e2e-test-suite/**/*.e2e-spec.ts',
     },
     capabilities: {
         'browserName': 'chrome',
@@ -67,6 +65,7 @@ const configSetup = {
         'browserstack.user': process.env.BROWSERSTACK_USERNAME || setupUtilities.getParam('', '--params.browserstack.user', false),
         'browserstack.key': process.env.BROWSERSTACK_ACCESS_KEY || setupUtilities.getParam('', '--params.browserstack.key', false),
         'browserstack.local': process.env.BROWSERSTACK_LOCAL || setupUtilities.getParam(false, '--params.browserstack.local', false),
+        'browserstack.localIdentifier': process.env.BROWSERSTACK_LOCAL_IDENTIFIER || setupUtilities.getParam('LocalIdentifier', '--params.browserstack.localIdentifier', false),
         'build': process.env.BROWSERSTACK_BUILD || setupUtilities.getParam('Local Build - ' + new Date().toISOString(), '--params.browserstack.build', false),
         'browserstack.debug': 'true',
         'acceptSslCerts': 'true',
@@ -74,29 +73,49 @@ const configSetup = {
         'browserstack.timezone': 'UTC',
         'browserstack.safari.allowAllCookies': 'true',
         shardTestFiles: true,
-        maxInstances: maxBrowserInstances
+        maxInstances: maxBrowserInstances,
     }],
     params: {
         verboseLogging: process.env.ENABLE_VERBOSE_LOGGING || setupUtilities.getParam(false, '--params.enableVerboseLogging', false),
         maxInstances: 5,
         maxSessions: 5,
         users: {
-            administrator: {
-                username: "cmcroot",
-                password: "!hailst0rm"
+            cmroot: {
+                username: 'cmcroot',
+                password: '!hailst0rm'
+            },
+            adminUser: {
+                username: 'admine2etest@bytestacker.com',
+                password: '!hailst0rm'
+            },
+            user: {
+                username: 'all@bytestacker.com',
+                password: '!hailst0rm'
+            },
+            leader: {
+                username: 'sri1@bytestacker.com',
+                password: '!mailst0rm'
+            },
+            epaAdmin: {
+                username: 'epaadmin',
+                password: '!hailst0rm'
+            },
+            epaUser: {
+                username: 'testepauser1',
+                password: '!hailst0rm'
+            },
+            epaManager: {
+                username: 'aaa',
+                password: '!hailst0rm'
             }
         },
-        apiUrls: {
-            leadOemPrograms: '/debugInfo/lps/leadOemPrograms/{programId}',
-            dealerMaster: '/debugInfo/lps/dealerMaster?dealerCode={DealerCode}&oemCode={OEMCode}',
-        },
         testrail: {
-            projectId: process.env.TESTRAIL_PROJECT_ID || setupUtilities.getParam(332, '--params.testrail.projectId', false),
-            milestoneName: process.env.TESTRAIL_MILESTONE_NAME || setupUtilities.getParam('Automation milestone week', '--params.testrail.milestoneName', false),
-            versionName: process.env.VERSION || setupUtilities.getParam('Default version name', '--params.testrail.versionName', false),
-            host: process.env.TESTRAIL_HOST || setupUtilities.getParam('https://testrail.devfactory.com/', '--params.testrail.host', false),
-            user: process.env.TESTRAIL_USER || setupUtilities.getParam('testrail.automation@aurea.com', '--params.testrail.user', false),
-            password: process.env.TESTRAIL_PASSWORD || setupUtilities.getParam('Ra1MxzvkpwYyd7rwzAMG-QfKX0hg9EqO/TFm81UG7', '--params.testrail.password', false),
+            projectId: process.env.TESTRAIL_PROJECT_ID || setupUtilities.getParam(36012, '--params.testrail.projectId', false),
+            milestoneName: process.env.TESTRAIL_MILESTONE_NAME || setupUtilities.getParam("Automation milestone week", "--params.testrail.milestoneName", false),
+            versionName: process.env.VERSION || setupUtilities.getParam("Default version name", "--params.testrail.versionName", false),
+            host: process.env.TESTRAIL_HOST || setupUtilities.getParam("https://testrail.devfactory.com/", '--params.testrail.host', false),
+            user: process.env.TESTRAIL_USER || setupUtilities.getParam('testrail.automation@aurea.com', "--params.testrail.user", false),
+            password: process.env.TESTRAIL_PASSWORD || setupUtilities.getParam('w.Ry1gkMbAebV7dEUoF/-5iKNkzOHsTGyhrZIG1k3', '--params.testrail.password', false)
         },
         version: process.env.VERSION || setupUtilities.getParam('7.5.0', '--params.testrail.versionName', false),
         selenium: {
@@ -112,14 +131,14 @@ const configSetup = {
         },
 
     },
-    baseUrl: "https://comal.alertfind.com/login",
+    baseUrl: 'https://comal.alertfind.com',
     apiBaseUrl: process.env.BASE_URL || setupUtilities.getParam('http://10.224.133.34:31007', '--params.apiBaseUrl', false),
     framework: 'jasmine',
     jasmineNodeOpts: {
         showColors: true,
-        defaultTimeoutInterval: 300000,
+        defaultTimeoutInterval: 600000,
         print: function () {
-        }
-    }
+        },
+    },
 };
 module.exports = configSetup;
